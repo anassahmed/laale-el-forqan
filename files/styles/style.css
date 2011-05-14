@@ -1,0 +1,243 @@
+/* style.css by Anass Ahmed */
+
+body {
+    direction: rtl;
+    font-size: 90%;
+    width: 760px;
+    padding-right: 10px;
+    overflow: hidden;
+}
+
+h1, 
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Times New Roman", "Arabic Transparent", "Al-mohanad", "Arial";
+}
+
+p,
+div,
+td,
+span {
+    font-family: "Ubuntu", "Tahoma";
+    font-size: 12px;
+    text-align: justify;
+}
+
+button,
+input[type=button],
+input[type=submit] {
+    border: 1px solid #999;
+    background: #65A769;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    font-family: "Times New Roman", "Arabic Transparent", "Arial", "Tahoma";
+    min-width: 200px;
+    padding: 10px;
+    -moz-border-radius: 50px;
+    -web-border-radius: 50px;
+    border-radius: 50px;
+}
+
+button:hover,
+input[type=button]:hover,
+input[type=submit]:hover {
+    background: #FFC96E;
+}
+
+.content {
+    background: url("images/quran_pages.jpg");
+    width: 727px;
+    height: 515px;
+    overflow: hidden;
+}
+
+.rightPage,
+.leftPage {
+    padding-top:50px;
+    width: 265px;
+    margin: 0;
+    float: right;
+}
+
+.rightPage {
+    padding-right: 70px;
+}
+
+.leftPage {
+    padding-right: 60px;
+}
+
+.hidden {
+    display: none;
+}
+
+.loading {
+    background: url("images/loading.gif") no-repeat center top;
+    padding-top: 34px;
+    width: 100%;
+    margin: 70px auto 0 auto;
+    text-align: center;
+}
+
+.leftPage .loading {
+    margin-top: 170px;
+}
+
+.statistics {
+    width: 200px;
+    margin: 100px auto 0 auto;
+}
+
+#aya {
+    height: 100px;
+    overflow: hidden;
+}
+
+#back {
+    float: left;
+    min-width: 50px;
+    padding: 5px 0;
+}
+
+#resultSuccess {
+    float: right;
+    color: green;
+}
+
+#resultFail {
+    float: right;
+    color: red;
+}
+
+.honorBoard {
+    width: 500px;
+    margin: 3px auto;
+    clear: both;
+    height: 120px;
+    overflow: hidden;
+}
+
+.hero {
+    float: right;
+    border: #eee 1px solid;
+    margin: 3px;
+    -moz-border-radius: 3px;
+    -web-border-radius: 3px;
+    border-radius: 3px;
+    max-width: 120px; 
+    height: 90px;
+    background: #FDFEF6;
+}
+
+.hero img {
+    float: right;
+    margin: 5px;
+}
+
+.extraPoints {
+    width: 700px;
+    margin: 10px auto;
+}
+
+.extraPoints .like {
+    width: 450px;
+    display: inline;
+}
+
+.extraPoints .bookmark {
+    float: left;
+}
+
+.extraPoints .invite {
+    width: 80px;
+    margin: 5px auto;
+}
+
+img {
+	border: none;
+}
+#hideshow {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+#fade {
+	background: #000; 
+	position: fixed; 
+	width: 100%;
+	height: 100%;
+	filter:alpha(opacity=80);
+	opacity: .80;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"; /*--IE 8 Transparency--*/
+	left: 0;
+	z-index: 10;
+}
+.popup_block {
+	background: #ddd;
+	padding: 10px 20px;
+	border: 10px solid #fff;
+	float: left;
+	width: 480px;
+	position: fixed;
+	top: 20%;
+	left: 50%;
+	margin: 0 0 0 -250px;
+	z-index: 100;
+
+}
+.popup_block .popup {
+	float: right;
+	width: 100%;
+	background: #fff;
+	margin: 10px 0;
+	padding: 10px 0;
+	border: 1px solid #bbb;
+}
+.popup h3 {
+	margin: 0 0 20px;
+	padding: 5px 10px;
+	border-bottom: 1px solid #bbb;
+	font: 18px "times newroman";
+}
+.popup p {
+	padding: 5px 10px;
+	margin: 5px 0;
+	font: 12px tahoma;
+}
+.popup img.cntrl {
+	position: absolute;
+	right: -20px;
+	top: -20px;
+}
+
+/*-- ترقيع ie6 --*/
+
+*html #fade {
+	position: absolute;
+	top:expression(eval(document.compatMode &&
+	document.compatMode=='CSS1Compat') ?
+	documentElement.scrollTop : document.body.scrollTop);
+}
+
+*html .popup_block {
+	position: absolute;
+	top:expression(eval(document.compatMode &&
+	document.compatMode=='CSS1Compat') ?
+	documentElement.scrollTop
+	+((documentElement.clientHeight-this.clientHeight)/2)
+	: document.body.scrollTop
+	+((document.body.clientHeight-this.clientHeight)/2));
+	
+	left:expression(eval(document.compatMode &&
+	document.compatMode=='CSS1Compat') ?
+	documentElement.scrollLeft 
+	+ (document.body.clientWidth /2 ) 
+	: document.body.scrollLeft 
+	+ (document.body.offsetWidth /2 ));
+}
