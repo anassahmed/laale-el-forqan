@@ -8,6 +8,8 @@ body {
     overflow: hidden;
 }
 
+@font-face {font-family: UthmanicHafs; src: url("UthmanicHafs.otf"); }
+
 h1, 
 h2,
 h3,
@@ -46,6 +48,18 @@ button:hover,
 input[type=button]:hover,
 input[type=submit]:hover {
     background: #FFC96E;
+}
+
+.note {
+    width: 700px;
+    margin: 3px auto;
+    clear: both;
+    background: #FFFBBD;
+    border: 1px solid #FDBC4D;
+}
+
+.disabled {
+    background: #555;
 }
 
 .content {
@@ -92,50 +106,58 @@ input[type=submit]:hover {
     margin: 100px auto 0 auto;
 }
 
+#round button,
+#round input[type=submit] {
+	min-width: 100px;
+	float: right;
+    margin: 3px;
+}
+
 #aya {
-    height: 100px;
+    height: 75px;
     overflow: hidden;
+    font-family: "UthmanicHafs", "Arabic Transparent", "Arial";
+    font-size: 125%;
 }
 
 #back {
     float: left;
     min-width: 50px;
     padding: 5px 0;
+    position: relative;
+    top: -20px;
 }
 
 #resultSuccess {
-    float: right;
     color: green;
 }
 
 #resultFail {
-    float: right;
     color: red;
 }
 
 .honorBoard {
-    width: 500px;
+    width: 700px;
     margin: 3px auto;
     clear: both;
-    height: 120px;
-    overflow: hidden;
+    height: 100px;
 }
 
 .hero {
     float: right;
     border: #eee 1px solid;
-    margin: 3px;
+    margin: 2px;
     -moz-border-radius: 3px;
     -web-border-radius: 3px;
     border-radius: 3px;
-    max-width: 120px; 
-    height: 90px;
+    max-width: 130px; 
+    height: 100px;
     background: #FDFEF6;
 }
 
 .hero img {
     float: right;
-    margin: 5px;
+    margin: 1px 5px;
 }
 
 .extraPoints {
@@ -148,13 +170,16 @@ input[type=submit]:hover {
     display: inline;
 }
 
-.extraPoints .bookmark {
+.extraPoints .tools {
     float: left;
+    width: 180px;
+    margin: 5px auto;
 }
 
-.extraPoints .invite {
+.extraPoints .tools button {
+    min-width: 80px;
     width: 80px;
-    margin: 5px auto;
+    max-width: 80px;
 }
 
 img {

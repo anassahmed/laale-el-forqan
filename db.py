@@ -1,8 +1,11 @@
 # -*- coding: UTF-8 -*-
-#!/usr/bin/python
 # db.py: database schema
 
+from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy import create_engine
+from sqlalchemy.schema import ThreadLocalMetaData
 from elixir import *
+import os, os.path
 
 db_server = 'localhost'
 db_user = 'anass'
@@ -10,32 +13,18 @@ db_pass = 'anass=1430'
 db_name = 'quran'
 db_prefix = 'db_'
 
-metadata.bind = 'mysql://%s:%s@%s/%s' %(db_user, db_pass, db_server, db_name)
+db_mysql_path = 'mysql://%s:%s@%s/%s' %(db_user, db_pass, db_server, db_name)
+db_sqlite_path = "sqlite:///"+os.path.expanduser("~/python-modules/quran_quize/db.db")
 
-class Quran(Entity):
-    using_options(tablename = db_prefix+'quran')
-    othmani = Field(UnicodeText)
-    imlai = Field(UnicodeText)
+b_engine = create_engine(db_mysql_path)
+b_session = scoped_session(sessionmaker(autoflush=True))
+b_metadata = ThreadLocalMetaData() 
 
-class Sajadat(Entity):
-    using_options(tablename = db_prefix+'sajadat')
-    sura = Field(Integer,index = True)
-    aya = Field(Integer)
-    sajda_type = Field(Integer)
-    comment = Field(UnicodeText)
+__metadata__ = b_metadata
+__session__ = b_session
 
-class SuraInfo(Entity):
-    using_options(tablename = db_prefix+'sura_info')
-    sura_name = Field(UnicodeText)
-    other_names = Field(UnicodeText)
-    makki = Field(Integer)
-    starting_row = Field(Integer)
-    comment = Field(UnicodeText)
-
-class Tahzeeb(Entity):
-    using_options(tablename = db_prefix+'tahzeeb')
-    sura = Field(Integer,index = True)
-    aya = Field(Integer)
+b_metadata.bind = b_engine
+b_session.bind = b_engine
 
 class users(Entity):
     using_options(tablename = db_prefix+'users')

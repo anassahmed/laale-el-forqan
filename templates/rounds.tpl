@@ -1,17 +1,4 @@
 <!-- Rounds -->
-%from functions import *
-
-%if rq.q.has_key('fb_user_id'):
-    %user = get_user_by_fb_id(rq.q.getfirst('fb_user_id').decode('utf8'))
-%else:
-    %raise forbiddenExeption()
-%end
-
-%if rq.q.has_key('parts_num'):
-    %round = create_new_round(user = user, parts_num = int(rq.q.getfirst('parts_num')), direction = rq.q.getfirst('direction','').decode('utf8'))
-%else:
-    %round = get_unfinished_round(user)
-%end
 
 <div id="rounds" class="rounds">
     %if round == None:
@@ -46,7 +33,6 @@
                 <input type="hidden" id="ayaId" name="ayaId" value="" />
                 <label for="answer">السورة التي وردت فيها الآية:</label><br /><br />
                 <select id="sura" name="sura">
-                    %suras = get_suras()
                     %for i in suras:
                         <option value="{{i}}">{{i}}</option>
                     %end
@@ -54,12 +40,18 @@
                 <br /><br />
                 <input type="submit" id="submit" name="submit" onClick="return submit_answer('{{rq.script}}', {{round.id}}, {{user.id}});" value="أجب" />
             </form><!-- #round -->
-            <p id="resultSuccess" class="hidden">ممتاز! إجابة صحيحة.</p><!-- #resultSuccess -->
-            <p id="resultFail" class="hidden">خطأ! الإجابة الصحيحة: <span id="sura_correct"></span></p><!-- #resultFail -->
+            <button id="cancel" onClick="cancel_round('{{rq.script}}', {{round.id}}, {{user.fb_id}})">ألغِ الجولة</button>
+            <div style="clear:both;"></div>
+            <span id="timer" class="hidden">الوقت المتبقي: <span id="timerNum"></span> ثوان</span>
+            <span id="Loading_Question" class="hidden">جاري تحميل السؤال ...</span>
+            <br />
+            <span id="error_waiting" class="hidden">قد يتأخر قليلًا ...</span><!-- #error_waiting -->
+            <span id="resultSuccess" class="hidden">ممتاز! إجابة صحيحة.</span><!-- #resultSuccess -->
+            <span id="resultFail" class="hidden">خطأ! الإجابة الصحيحة: <span id="sura_correct"></span></span><!-- #resultFail -->
         </div><!-- #round -->
     %end
     <br />
 
-    <button id="back" onClick="get_menu('{{rq.script}}',{{user.fb_id}})">ارجع</button>
+    <button id="back" onClick="stopTimer(); get_statistics('{{rq.script}}', {{user.fb_id}}); get_menu('{{rq.script}}',{{user.fb_id}})">ارجع</button>
 
 </div>

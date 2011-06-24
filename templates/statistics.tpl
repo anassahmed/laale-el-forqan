@@ -1,14 +1,4 @@
 <!-- Statistics -->
-%from functions import *
-
-%if rq.q.has_key('fb_user_id'):
-    %user = get_user_by_fb_id(rq.q.getfirst('fb_user_id').decode('utf8'))
-    %statistics = get_statistics(user)
-%end
-
-%if rq.q.has_key('round_id'):
-    %r = get_round(round_id = int(rq.q.getfirst('round_id')))
-%end
 
 <div id="statistics" class="statistics">
     %if not rq.q.has_key('round_id'):
@@ -36,12 +26,16 @@
             <td><span>{{statistics.points}}</span></td>
         </tr>
         <tr>
-            <td>النقاظ الإضافية:</td>
+            <td>النقاط الإضافية:</td>
             <td><span>{{statistics.extra_points}}</span></td>
         </tr>
         <tr>
             <td>إجمالي النقاط:</td>
             <td><span>{{statistics.total_points}}</span></td>
+        </tr>
+        <tr>
+            <td>المرتبة: </td>
+            <td><span>{{rank}}</span></td>
         </tr>
     </table>
     
