@@ -10,7 +10,7 @@ We used this way in this application to test our memorization, so I applied it i
 
 ## Usage and Deploying
 
-You can use, test, deploy it with [Okasha](http://www.ojuba.org/wiki/okasha) by the way explained [here](http://www.ojuba.org/wiki/okasha/deployment).
+You can use, test, deploy it with [Okasha](http://www.ojuba.org/wiki/okasha/) by the way explained [here](http://www.ojuba.org/wiki/okasha/deployment).
 
 You should use it in real Facebook application by replacing facebook application information in the start of *functions.py*.
 
@@ -18,7 +18,7 @@ You can use it without Facebook application via **Demo Mode**.
 
 ## Dependencies
 
-This application depends on [Okasha Web Framework](http://www.ojuba.org/wiki/okasha), [SQLAlchemy](http://www.sqlalchemy.org/) and [Elixir](https://pypi.python.org/pypi/Elixir).
+This application depends on [Okasha Web Framework](http://www.ojuba.org/wiki/okasha/), [SQLAlchemy](http://www.sqlalchemy.org/) and [Elixir](https://pypi.python.org/pypi/Elixir).
 
 ## Languages
 
